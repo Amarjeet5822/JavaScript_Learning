@@ -181,6 +181,32 @@ for(let prop in rabbit7) console.log(prop); // jumps, then eats
 // *** We can store own keys of specific Object (using for..in loop) and exclude the inherit property or method using (Object.keys(ObjectName)) ***
 
 // ======== Example 8. ==============
+// So we can filter out inherited properties (or do something else with them):
+
+let animal8 = {
+  eats: true
+};
+
+let rabbit8 = {
+  jumps: true,
+  __proto__: animal8
+};
+
+for (let prop in rabbit8 ) {
+  let isOwn = rabbit8.hasOwnProperty(prop);
+
+  if (isOwn) {
+    console.log(`Our: ${prop}`); // Our: jumps
+  } else {
+    console.log(`Inherited: ${prop}`); // Inherited: eats
+  }
+}
+// …But why does *hasOwnProperty* not appear in the *for..in* loop like *eats* and *jumps* do, *if for..in* lists inherited properties?
+
+// The answer is simple: it’s not enumerable. Just like all other properties of *Object.prototype*, it has *enumerable:false* flag. And *for..in* only lists enumerable properties. That’s why it and the rest of the *Object.prototype* properties are not listed.
+
+
+
 
 
 

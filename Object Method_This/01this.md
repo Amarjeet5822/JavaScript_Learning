@@ -181,3 +181,6 @@ ladder.up().up().down().showStep().down().showStep();
 
 ![alt text](imgage/image.png)
 
+# `Summary of PrototypesInheritance.js` 
+
+![alt text](image.png)
