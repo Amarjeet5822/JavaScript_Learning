@@ -205,6 +205,9 @@ for (let prop in rabbit8 ) {
 
 // The answer is simple: it’s not enumerable. Just like all other properties of *Object.prototype*, it has *enumerable:false* flag. And *for..in* only lists enumerable properties. That’s why it and the rest of the *Object.prototype* properties are not listed.
 
+// Tasks Practice to Understand Inheritance
+
+
 
 
 
