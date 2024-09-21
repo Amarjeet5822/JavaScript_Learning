@@ -142,3 +142,37 @@ worker.work() // Working as an Engineer
 worker.greet(); // Greeting!
 
 ```
+# Copying perperties from one *factory function* to another
+```js
+function personCreator(firstName, lastName, age) {
+  let obj = {}
+  obj.firstName = firstName;
+  obj.lastName = lastName;
+  obj.age = age;
+  return obj;
+};
+
+function employeeCreator(firstName, lastName, age, department,salary ) {
+  let obj = personCreator(firstname, lastName, age)
+  obj.department = department;
+  obj.salary = salary;
+  return obj;
+};
+
+let emp1 = employeeCreator("Amar","Gupta",35,"sales",100000);
+console.log(emp1);
+```
+# ===== ~New way of calling function using `.call`~ =====
+## `.call()`, we call an object and arg1,arg2 as argument.
+```js
+function Introduce( greeting ) {
+  let greet = greeting;
+  let name = this.name;
+  let age = this.age;
+
+  console.log(`${greet}! I am ${name} & I am ${age} years old.`);
+}
+
+Introduce.call({name:"John", age:40 }, "Hello");
+// Hello! I am John & I am 40 years old.
+```
