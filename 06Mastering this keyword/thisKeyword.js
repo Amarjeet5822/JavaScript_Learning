@@ -98,7 +98,7 @@ p1.deposit(9000);
 // Getters and Setters with private fields
 // Getters and setters are special methods that allow us to access and modify class properties.
 
-class Person {
+class Person5 {
     #age;
     constructor(name, age) {
         this.name = name;
@@ -115,8 +115,67 @@ class Person {
     }
 };
 
-const john = new Person("John", 30);
-console.log(john.age); // 30 
-john.age = 40;
-console.log(john.age);
-john.age = -10;// Error: Age must be a positive numbers.
+// const john5 = new Person5("John", 30);
+// console.log(john5.age); // 30 
+// john5.age = 40;
+// console.log(john5.age);
+// john5.age = -10;// Error: Age must be a positive numbers.
+
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+// Understand Regular Function vs Arrow function
+
+//              Regular Functions:
+// Function declaration
+function myDeclaredFunction1(number) {
+    return number *2;
+}
+// function expression
+var myExpressionFunction1 = function (number) {
+    return number * 2
+}
+
+// console.log(myDeclaredFunction1(2));
+// console.log(myExpressionFunction1(5));
+
+//              Arrow Functions:
+var myArrowFunction1 = (number) => number * 2;
+// console.log(myArrowFunction1(10));
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+// Understand "Call", "Apply" VS "Bind"
+
+// call, apply, & bind
+
+// .call & .apply are used to invoke a function & set the value of the "this" keyword inside of the function.
+
+// .bind is used to create a function & set the value of the "this" keyword inside of the newly created function.
+
+function greet(greeting, year, reciever) {
+    return `${greeting} ${year} to ${reciever} from ${this.name}.`
+}
+// while invoking greet() we need to set the value of this keyword inside of the greet function
+
+// .call() 
+// takes in the value of "this" keyword as the first argument.
+// rest of the arguments to the function can be sent as comma separated values 
+// let g = greet.call({name: "Amar"}, "Happy new year","2023", "JS201 Batch")
+
+// .apply()
+// takes in the value of "this" keyword as the first argument.
+// rest of the arguments to the function can be sent is an array of values 
+// let args = [];
+// args.push("Happy new year");
+// args.push("2023");
+// args.push("JS201 Batch");
+
+// let g = greet.apply({name:'Vivek'},args)
+
+// .bind()
+// bind gives you a new function
+// in which the "this" keyword is pre-set for you
+// let greetFromVivek = greet.bind({name:"Vivek"});
+
+// console.log(g);
