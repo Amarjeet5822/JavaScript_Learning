@@ -176,3 +176,20 @@ function Introduce( greeting ) {
 Introduce.call({name:"John", age:40 }, "Hello");
 // Hello! I am John & I am 40 years old.
 ```
+# Copying properties from one constructor function to another
+```js
+function IPhone1(ID, color, display, weight) {
+  this.id = ID;
+  this.color = color;
+  this.display = display;
+  this.weight = weight;
+}
+
+function IPhone2(ID, color, display, weight, blueTooth, internet, camera) {
+  IPhone1.call(ID, color, display, weight);
+  this.blueTooth = blueTooth;
+  this.internet = internet;
+  this.camera = camera;
+}
+let ip2Obj = new IPhone2(1, "black", "128GB", 1000, "1.0","2g", "1.0 MP");
+```
