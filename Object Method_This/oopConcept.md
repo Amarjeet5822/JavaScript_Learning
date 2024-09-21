@@ -193,3 +193,161 @@ function IPhone2(ID, color, display, weight, blueTooth, internet, camera) {
 }
 let ip2Obj = new IPhone2(1, "black", "128GB", 1000, "1.0","2g", "1.0 MP");
 ```
+# Inheritance - Factory functions
+```js
+createIPhone1.prototype.dial = function () {
+  console.log("tring.. tring..");
+};
+createIPhone1.prototype.sendMessage = function() {
+  console.log("Sending message..." );
+};
+
+function createIPhone1(ID, color, display, weight) {
+  let obj = {};
+  Object.setPrototypeOf(obj, createIPhone1.prototype);
+
+  obj.id = ID;
+  obj.color = color;
+  obj.display = display;
+  obj.weight = weight;
+  
+  return obj;
+}
+// ============= Another ==============
+
+createIPhone2.prototype.dial = function() {
+  console.log("tring.. tring..");
+};
+createIPhone2.prototype.sendMessage = function() {
+  console.log("Sending message...");
+};
+createIPhone2.prototype.connectToBluetooth = function() {
+  console.log("Connecting to bluetooth...");
+};
+createIPhone2.prototype.connectToInternet = function() {
+  console.log("Connecting to internet...");
+};
+
+function createIPhone2(ID, color, display, weight, blueTooth, internet) {
+  let obj = {};
+  Object.setPrototypeOf(obj,createIPhone2.prototype);
+
+  obj.id = ID;
+  obj.color = color;
+  obj.display = display;
+  obj.weight = weight;
+  obj.blueTooth = blueTooth;
+  obj.internet = internet;
+  
+  return obj;
+}
+
+let iphone2Object = new createIphone2(
+  1,
+  "black",
+  "128GB",
+  1000,
+  "1.0",
+  "2g",
+  "1.0 MP"
+);
+console.log(iphone2Object);
+iphone2Object.dial();
+iphone2Object.sendMessage();
+iphone2Object.connectToBluetooth();
+iphone2Object.connectToInternet();
+
+```
+# Inheritance - Factory functions to Constructor functons
+```js
+createPerson.prototype.increaseAge = function () {
+  this.age++;
+  console.log("increasing age...");
+};
+
+createPerson.prototype.eat = function () {
+  console.log("eating...");
+};
+
+function createPerson(firstName, lastName, age) {
+  let obj = {};
+  Object.setPrototypeOf(obj, createPerson.prototype);
+
+  obj.firstName = firstName;
+  obj.lastName = lastName;
+  obj.age = age;
+
+  return obj;
+}
+
+Object.setPrototypeOf(createEmployee.prototype, createPerson.prototype);
+
+createEmployee.prototype.work = function () {
+  console.log("working");
+};
+
+createEmployee.prototype.increaseSalary = function (amt) {
+  this.salary += amt;
+  console.log("increasing salary...");
+};
+
+function createEmployee(firstName, lastName, age, salary) {
+  let obj = createPerson(firstName, lastName, age);
+  Object.setPrototypeOf(obj, createEmployee.prototype);
+  obj.salary = salary;
+  return obj;
+}
+
+let e1 = createEmployee("Vivek", "Agarwal", 40, 100);
+e1.eat();
+e1.increaseAge();
+e1.work();
+e1.increaseSalary(50);
+console.log(e1);
+```
+# Inheritance - Constructor Functions to ES6 Classes 
+```js
+IPhone1.prototype.dial = function() {
+  console.log("tring.. tring...");
+};
+IPhone1.prototype.sendMessage = function() {
+  console.log("Sending message...");
+};
+
+function IPhone1(ID, color, display, weight) {
+  this.id = ID;
+  this.color = color;
+  this.display = color;
+  this.weight = weight;
+}
+
+Object.setPrototypeOf(IPhone2.prototype, IPhone1.prototype);
+
+IPhone2.prototype.connectToBluetooth = function () {
+  console.log("Connecting to bluetooth...");
+};
+IPhone2.prototype.connectToInternet = function () {
+  console.log("Connecting to internet...");
+};
+
+function IPhone2(ID, color, diplay, weight, blueTooth, internet) {
+  IPhone1.call(this, ID, color, display, weight);
+  this.blueTooth = blueTooth;
+  this.internet = internet;
+}
+let iphone2Object = new IPhone2(
+  1,
+  "black",
+  "128GB",
+  1000,
+  "1.0",
+  "2g",
+  "1.0 MP"
+);
+
+console.log(iphone2Object);
+iphone2Object.dial();
+iphone2Object.sendMessage();
+iphone2Object.connectToBluetooth();
+iphone2Object.connectToInternet();
+```
