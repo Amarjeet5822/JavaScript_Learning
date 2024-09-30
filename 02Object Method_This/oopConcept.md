@@ -106,7 +106,7 @@ workInfo.work = function() {
 workInfo.work(); // "Working"
 workInfo.name; // "Amarjeet"
 ```
-# ===== ~Create function prototype chains~ =====
+# ===== Create function prototype chains =====
 - Add method to a function's prototype object
 - Create prototype chain between a function's prototype and an object
 - Create prototype chain between two function's prototypes
@@ -118,7 +118,7 @@ person.prototype.greet = function () {
 };
 
 // you can chain prototype of one function to another
-fucntion engineer () {}
+function engineer () {}
 engineer.prototype.code = function() {
   console.log("Coding");
 };
@@ -162,7 +162,7 @@ function employeeCreator(firstName, lastName, age, department,salary ) {
 let emp1 = employeeCreator("Amar","Gupta",35,"sales",100000);
 console.log(emp1);
 ```
-# ===== ~New way of calling function using `.call`~ =====
+# ===== New way of calling function using `.call` =====
 ## `.call()`, we call an object and arg1,arg2 as argument.
 ```js
 function Introduce( greeting ) {
