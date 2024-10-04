@@ -309,3 +309,8 @@ let army = {
 ![alt text](image.png)
 ![alt text](image-1.png) 
 ![alt text](image-2.png)
+
+# Call Backs function
+
+### What is a Callback Function?
+#### A callback function is a function that is an argument to another function and is executed after its parent function has completed. 
