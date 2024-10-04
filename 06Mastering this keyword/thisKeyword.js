@@ -153,9 +153,9 @@ var myArrowFunction1 = (number) => number * 2;
 
 // .bind is used to create a function & set the value of the "this" keyword inside of the newly created function.
 
-function greet(greeting, year, reciever) {
-    return `${greeting} ${year} to ${reciever} from ${this.name}.`
-}
+// function greet(greeting, year, reciever) {
+//     return `${greeting} ${year} to ${reciever} from ${this.name}.`
+// }
 // while invoking greet() we need to set the value of this keyword inside of the greet function
 
 // .call() 
@@ -176,6 +176,7 @@ function greet(greeting, year, reciever) {
 // .bind()
 // bind gives you a new function
 // in which the "this" keyword is pre-set for you
-// let greetFromVivek = greet.bind({name:"Vivek"});
+// let g = greet.bind({name:"Vivek"}, "Hello, ", 2025, "Jatin ");
 
 // console.log(g);
+
