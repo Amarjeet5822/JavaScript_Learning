@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Bind</title>
+</head>
+<body>
+    <button>Clicked me</button>
+</body>
+    <script>
+        class React {
+            constructor() {
+            this.library = "React";
+            this.server = "https://localhost:3000/";
+
+            // requirement
+            document.querySelector("button").addEventListener('click',this.handleClick.bind(this) );
+            // bind(this) is creating a link between knowBind this. otherwise button is not get this.library and server connection with this.
+            
+            }
+            handleClick() {
+                console.log("button clicked");
+                console.log(this)
+            };
+        }
+
+        let knowBind = new React()
+        console.log(knowBind.library);
+        console.log(knowBind.server);
+        console.log(knowBind)
+
+    </script>
+</html>
