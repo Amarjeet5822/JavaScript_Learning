@@ -67,9 +67,6 @@ arr.forEach(function(item,index,arr){
   // ... do something with an item
 });
 
-arr.forEach((item, index, arr) => {
-  // ... do something with an item
-});
 
 ```
 ## `Searching in array `
@@ -94,7 +91,7 @@ alert( arr.includes(NaN) );// true (correct)
 ```
 ## `find and findIndex/findLastIndex `
 ```js
-let result = arr.find(function(item, index, array) {
+let result = arr.find( (item, index, array) => {
   // if true is returned, item is returned and iteration
   // for falsy scenario returns undefined
 })
@@ -130,7 +127,7 @@ alert(users.findLastIndex(user => user.name == 'John')); // 3
 ```
 ## `filter : returns an array of all matching elements: `
 ```js
-let results = arr.filter(function(item, index, array) {
+let results = arr.filter( (item, index, array) => {
   // if true item is pushed to results and the iteration continuous 
   // returns empty array it nothing found
 })
@@ -152,7 +149,7 @@ alert(someUsers.length); // 2
 ### `It calls the function for each element of the array and returns the array of results.`
 
 ```js
-let result = arr.map(function(item, index, array) {
+let result = arr.map( (item, index, array) => {
   // returns the new value instead of item
 });
 `For instance, here we transform each element into its length:`
